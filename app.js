@@ -5,7 +5,9 @@ var confirmQuiz = confirm('Hello, would you like to take a quiz?');
 /* var invalidAnswers = 0;
 
 Invalid answer responses.
+
 removed becuase you guys don't want it.
+
 function seriously(badAnswers) {
   if(badAnswers === 0){
     console.log('Y or N man, come on.');
@@ -30,7 +32,11 @@ if(confirmQuiz) {
   alert('You actually don\'t get a say in the matter');
 }
 
-alert('Please answer all questions with a Y or N');
+var user = prompt('First, what is your name?');
+
+alert('Thank you ' + user + '.');
+
+alert(user + ', Please answer all questions with a Y or N.');
 
 // Question One.
 
@@ -55,10 +61,10 @@ if(quizResponseTwo.toUpperCase() === 'Y' || quizResponseTwo.toUpperCase() === 'Y
   alert('Not really, Mercer Island isn\'t technically Seattle.');
   console.log('Incorrect!');
 } else if(quizResponseTwo.toUpperCase() === 'N' || quizResponseTwo.toUpperCase() === 'NO') {
-  alert('Good work, He does\'t.');
+  alert('Good work ' + user + ', He does\'t.');
   console.log('Correct!');
 } else {
-  alert('Dude, Y or N, its not hard.');
+  alert(user + ', Y or N, its not hard.');
   console.log('Incorrect!');
 }
 
@@ -70,7 +76,7 @@ if(quizResponseThree.toUpperCase() === 'Y' || quizResponseThree.toUpperCase() ==
   alert('Yes, Mexico.');
   console.log('Correct!');
 } else if(quizResponseThree.toUpperCase() === 'N' || quizResponseThree.toUpperCase() === 'NO') {
-  alert('Try again.');
+  alert('Try again ' + user + '.');
   console.log('Incorrect!');
 } else {
   alert('No, use Y or N.');
@@ -82,7 +88,7 @@ if(quizResponseThree.toUpperCase() === 'Y' || quizResponseThree.toUpperCase() ==
 var quizResponseFour = prompt('Has Ben jumped out of an airplane?');
 
 if(quizResponseFour.toUpperCase() === 'Y' || quizResponseFour.toUpperCase() === 'YES') {
-  alert('Yes, Skydiving is a terifyingly fun experience');
+  alert('Yes, Skydiving is a terifyingly fun experience.');
   console.log('Correct!');
 } else if(quizResponseFour.toUpperCase() === 'N' || quizResponseFour.toUpperCase() === 'NO') {
   alert('He actually has.');
@@ -97,7 +103,7 @@ if(quizResponseFour.toUpperCase() === 'Y' || quizResponseFour.toUpperCase() === 
 var quizResponseFive = prompt('Could Ben beat you in a fight?');
 
 if(quizResponseFive.toUpperCase() === 'Y' || quizResponseFive.toUpperCase() === 'YES') {
-  alert('Bring it on!');
+  alert('Bring it on ' + user + '!');
   console.log('Incorrect!');
 } else if(quizResponseFive.toUpperCase() === 'N' || quizResponseFive.toUpperCase() === 'NO') {
   alert('Don\'t be like that, have some more confidence in yourself.');
