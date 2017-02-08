@@ -36,10 +36,10 @@ alert('Please answer all questions with a Y or N');
 
 var quizResponseOne = prompt('Does Ben have a dog?');
 
-if(quizResponseOne.toUpperCase() === 'Y') {
+if(quizResponseOne.toUpperCase() === 'Y' || quizResponseOne.toUpperCase() === 'YES') {
   alert('Yes he does.');
   console.log('Correct!');
-} else if(quizResponseOne.toUpperCase() === 'N') {
+} else if(quizResponseOne.toUpperCase() === 'N' || quizResponseOne.toUpperCase() === 'NO') {
   alert('No, he actually does.');
   console.log('Incorrect!');
 } else {
@@ -51,10 +51,10 @@ if(quizResponseOne.toUpperCase() === 'Y') {
 
 var quizResponseTwo = prompt('Does Ben live in Seattle?');
 
-if(quizResponseTwo.toUpperCase() === 'Y') {
+if(quizResponseTwo.toUpperCase() === 'Y' || quizResponseTwo.toUpperCase() === 'YES') {
   alert('Not really, Mercer Island isn\'t technically Seattle.');
   console.log('Incorrect!');
-} else if(quizResponseTwo.toUpperCase() === 'N') {
+} else if(quizResponseTwo.toUpperCase() === 'N' || quizResponseTwo.toUpperCase() === 'NO') {
   alert('Good work, He does\'t.');
   console.log('Correct!');
 } else {
@@ -64,12 +64,12 @@ if(quizResponseTwo.toUpperCase() === 'Y') {
 
 // question Three
 
-var quizResponseTwo = prompt('Has Ben been somwhere outside of the U.S?');
+var quizResponseThree = prompt('Has Ben been somwhere outside of the U.S?');
 
-if(quizResponseTwo.toUpperCase() === 'Y') {
+if(quizResponseThree.toUpperCase() === 'Y' || quizResponseThree.toUpperCase() === 'YES') {
   alert('Yes, Mexico.');
   console.log('Correct!');
-} else if(quizResponseTwo.toUpperCase() === 'N') {
+} else if(quizResponseThree.toUpperCase() === 'N' || quizResponseThree.toUpperCase() === 'NO') {
   alert('Try again.');
   console.log('Incorrect!');
 } else {
@@ -79,12 +79,12 @@ if(quizResponseTwo.toUpperCase() === 'Y') {
 
 // question Four
 
-var quizResponseTwo = prompt('Has Ben jumped out of an airplane?');
+var quizResponseFour = prompt('Has Ben jumped out of an airplane?');
 
-if(quizResponseTwo.toUpperCase() === 'Y') {
+if(quizResponseFour.toUpperCase() === 'Y' || quizResponseFour.toUpperCase() === 'YES') {
   alert('Yes, Skydiving is a terifyingly fun experience');
   console.log('Correct!');
-} else if(quizResponseTwo.toUpperCase() === 'N') {
+} else if(quizResponseFour.toUpperCase() === 'N' || quizResponseFour.toUpperCase() === 'NO') {
   alert('He actually has.');
   console.log('Incorrect!');
 } else {
@@ -94,12 +94,12 @@ if(quizResponseTwo.toUpperCase() === 'Y') {
 
 // Question Five
 
-var quizResponseTwo = prompt('Could Ben beat you in a fight?');
+var quizResponseFive = prompt('Could Ben beat you in a fight?');
 
-if(quizResponseTwo.toUpperCase() === 'Y') {
+if(quizResponseFive.toUpperCase() === 'Y' || quizResponseFive.toUpperCase() === 'YES') {
   alert('Bring it on!');
   console.log('Incorrect!');
-} else if(quizResponseTwo.toUpperCase() === 'N') {
+} else if(quizResponseFive.toUpperCase() === 'N' || quizResponseFive.toUpperCase() === 'NO') {
   alert('Don\'t be like that, have some more confidence in yourself.');
   console.log('Incorrect!');
 } else {
