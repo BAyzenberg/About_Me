@@ -1,8 +1,13 @@
-h2, p {
+h2, #hiddenMessage {
   color: red;
   font-size: 7px;
 }
 
- *{
+p {
+    font-size: 30px;
+}
+
+ body {
    background-image: url("http://www.tbkconsultblog.com/wp-content/uploads/2012/02/Questionmark.jpg");
+
  }
