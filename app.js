@@ -36,11 +36,77 @@ var user = prompt('First, what is your name?');
 
 alert('Thank you ' + user + '.');
 
-alert(user + ', Please answer all questions with a Y or N.');
+alert(user + ', Please answer the first five questions with a Y or N.');
 
-var quizQuestion = ['Does Ben have a dog?', 'Does Ben live in Seattle?', 'Has Ben been somwhere outside of the U.S?', 'Has Ben jumped out of an airplane?', 'Could Ben beat you in a fight?'];
-var quizAnswers = [];
+//Questions and answers
+var quizQuestions = ['Does Ben have a dog?', 'Does Ben live in Seattle?', 'Has Ben been somwhere outside of the U.S?', 'Has Ben jumped out of an airplane?', 'Does Ben have any siblings?', 'Can you guess a number between 1 and 10?', 'Can you name a Legendary Pokemon from Generation 1?'];
+var quizAnswers = ['y', 'n', 'y', 'y', 'y'];
+var quizResponsesCorrect = ['Yes he does.','Good work ' + user + ', He does\'t.','Yes, Mexico.','Yes, Skydiving is a terifyingly fun experience.','Two actually a brother and a sister.','Good guessing ' + user + '.', 'Gotta catch them all!'];
+var quizResponsesIncorrect = ['Acutally he does.','Not really, Mercer Island isn\'t technically Seattle.','Try again ' + user + '.', 'How about you jump out of an airplane for not believing in him.', 'If you had quessed a brother or a sister you would have been correct, but you guessed neither.', 'It\'s ok, it was a random number', 'Come back when you are a Pokemon Master ' + user + '.'];
 
+// Random number Generator
+var randomNumber = Math.floor((Math.random() * 10) + 1);
+quizAnswers.push(randomNumber);
+
+var legendaryPokemon = ['mew', 'mewtwo', 'zapdos', 'moltres', 'articuno'];
+quizAnswers.push(legendaryPokemon);
+
+// All questions should be completed with answers
+for (var iDisplay = 0; iDisplay < quizQuestions.length; iDisplay++) {
+  console.log(quizQuestions[iDisplay]);
+}
+
+//displaying random number
+console.log(randomNumber);
+var correctAnswers = 0;
+
+for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionNumber++) {
+  var currentAnswer = prompt(quizQuestions[iQuestionNumber]);
+  //question number 6
+  var guesses = 1;
+  if (iQuestionNumber === 5) {
+    while (guesses < 4 && quizAnswers !== currentAnswer) {
+      //currentAnswer = prompt('You got the wrong number ' + (4 - guesses) + ' left.');
+      if (currentAnswer < quizAnswers[iQuestionNumber]) {
+        currentAnswer = prompt('You guessed too low: ' + (4 - guesses) + ' left.');
+      } else if (currentAnswer > quizAnswers[iQuestionNumber]) {
+        currentAnswer = prompt('You guessed too high: ' + (4 - guesses) + ' left.');
+      } else {
+        alert(quizResponsesCorrect[iQuestionNumber]);
+        break;
+      }
+      guesses++;
+    }
+    // question number 7
+    var iPokemon = '';
+  } else if(iQuestionNumber === 6) {
+    for (iPokemon = 0; iPokemon < legendaryPokemon.length; iPokemon++) {
+      if (legendaryPokemon[iPokemon] === currentAnswer.toLowerCase()) {
+        //Congratulations message
+        alert(quizResponsesCorrect[iQuestionNumber]);
+        correctAnswers++;
+        break;
+      }
+      // Too bad
+    }
+  }
+  //questions 1-5 responses
+  if (currentAnswer.toLowerCase() === quizAnswers[iQuestionNumber]) {
+    alert(quizResponsesCorrect[iQuestionNumber]);
+    correctAnswers++;
+  } else {
+    if (iQuestionNumber !== 6 && iQuestionNumber !== 5) {
+      alert (quizResponsesIncorrect[iQuestionNumber]);
+    } else if (iQuestionNumber === 5 && guesses === 4) {
+      alert(quizResponsesIncorrect[iQuestionNumber]);
+    } else if(currentAnswer.toLowerCase() !== legendaryPokemon[iPokemon]) {
+      alert(quizResponsesIncorrect[iQuestionNumber]);
+    }
+  }
+}
+console.log(correctAnswers);
+
+/*
 // Question One.
 
 var quizResponseOne = prompt(quizQuestion[0]);
@@ -131,6 +197,7 @@ if(quizResponseFive.toUpperCase() === 'Y' || quizResponseFive.toUpperCase() === 
   quizAnswers.push('Correct!');
 }
 
-for(i = 0; i < quizQuestion.length; i++){
-  document.writeln('<p>' + quizQuestion[i] + ': ' + quizAnswers[i] + '</p>');
+for(i = 0; i < quizQuestions.length; i++){
+  document.writeln('<p>' + quizQuestions[i] + ': ' + quizAnswers[i] + '</p>');
 }
+*/
