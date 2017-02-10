@@ -1,3 +1,4 @@
+
 'user strict';
 
 var confirmQuiz = confirm('Hello, would you like to take a quiz?');
@@ -60,39 +61,7 @@ for (var iDisplay = 0; iDisplay < quizQuestions.length; iDisplay++) {
 console.log(randomNumber);
 var correctAnswers = 0;
 
-for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionNumber++) {
-  var currentAnswer = prompt(quizQuestions[iQuestionNumber]);
-  //question number 6
-  var guesses = 3;
-  console.log(guesses);
-  if (iQuestionNumber === 5) {
-    while (guesses > 0 && quizAnswers[iQuestionNumber] !== currentAnswer) {
-      //currentAnswer = prompt('You got the wrong number ' + (4 - guesses) + ' left.');
-      if (currentAnswer < quizAnswers[iQuestionNumber]) {
-        currentAnswer = prompt('You guessed too low: ' + guesses + ' left.');
-      } else if (currentAnswer > quizAnswers[iQuestionNumber]) {
-        currentAnswer = prompt('You guessed too high: ' + guesses + ' left.');
-      } else {
-        break;
-      }
-      console.log(guesses);
-      guesses--;
-    }
-    console.log(guesses);
-    // question number 7
-    var iPokemon = '';
-  } else if(iQuestionNumber === 6) {
-    for (iPokemon = 0; iPokemon < legendaryPokemon.length; iPokemon++) {
-      if (legendaryPokemon[iPokemon] === currentAnswer.toLowerCase()) {
-        //Congratulations message
-        alert(quizResponsesCorrect[iQuestionNumber]);
-        correctAnswers++;
-        break;
-      }
-      // Too bad
-    }
-  }
-  //questions 1-5 responses
+function response() {
   if (currentAnswer.toLowerCase() === quizAnswers[iQuestionNumber] && iQuestionNumber !== 5) {
     alert(quizResponsesCorrect[iQuestionNumber]);
     correctAnswers++;
@@ -110,6 +79,50 @@ for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionN
   }
 }
 console.log(correctAnswers);
+
+function guessingGame(){
+  while (guesses > 0 && quizAnswers[iQuestionNumber] !== currentAnswer) {
+    //currentAnswer = prompt('You got the wrong number ' + (4 - guesses) + ' left.');
+    if (currentAnswer < quizAnswers[iQuestionNumber]) {
+      currentAnswer = prompt('You guessed too low: ' + guesses + ' left.');
+    } else if (currentAnswer > quizAnswers[iQuestionNumber]) {
+      currentAnswer = prompt('You guessed too high: ' + guesses + ' left.');
+    } else {
+      break;
+    }
+    console.log(guesses);
+    guesses--;
+  }
+}
+function pokemanMaster(){
+  for (iPokemon = 0; iPokemon < legendaryPokemon.length; iPokemon++) {
+    if (legendaryPokemon[iPokemon] === currentAnswer.toLowerCase()) {
+      //Congratulations message
+      alert(quizResponsesCorrect[iQuestionNumber]);
+      correctAnswers++;
+      break;
+    }
+  }
+}
+
+for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionNumber++) {
+  var currentAnswer = prompt(quizQuestions[iQuestionNumber]);
+  //question number 6
+  var guesses = 3;
+  var iPokemon = '';
+  console.log(guesses);
+  if (iQuestionNumber === 5) {
+    guessingGame();
+
+    console.log(guesses);
+
+    // question number 7
+  } else if(iQuestionNumber === 6) {
+    pokemanMaster();
+  }
+  //questions 1-5 responses
+  response();
+}
 
 for(i = 0; i < quizQuestions.length; i++){
   document.writeln('<p>' + quizQuestions[i] + ': ' + quizAnswers[i] + '</p>');
