@@ -63,20 +63,22 @@ var correctAnswers = 0;
 for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionNumber++) {
   var currentAnswer = prompt(quizQuestions[iQuestionNumber]);
   //question number 6
-  var guesses = 1;
+  var guesses = 3;
+  console.log(guesses);
   if (iQuestionNumber === 5) {
-    while (guesses < 4 && quizAnswers !== currentAnswer) {
+    while (guesses > 0 && quizAnswers[iQuestionNumber] !== currentAnswer) {
       //currentAnswer = prompt('You got the wrong number ' + (4 - guesses) + ' left.');
       if (currentAnswer < quizAnswers[iQuestionNumber]) {
-        currentAnswer = prompt('You guessed too low: ' + (4 - guesses) + ' left.');
+        currentAnswer = prompt('You guessed too low: ' + guesses + ' left.');
       } else if (currentAnswer > quizAnswers[iQuestionNumber]) {
-        currentAnswer = prompt('You guessed too high: ' + (4 - guesses) + ' left.');
+        currentAnswer = prompt('You guessed too high: ' + guesses + ' left.');
       } else {
-        alert(quizResponsesCorrect[iQuestionNumber]);
         break;
       }
-      guesses++;
+      console.log(guesses);
+      guesses--;
     }
+    console.log(guesses);
     // question number 7
     var iPokemon = '';
   } else if(iQuestionNumber === 6) {
@@ -91,15 +93,18 @@ for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionN
     }
   }
   //questions 1-5 responses
-  if (currentAnswer.toLowerCase() === quizAnswers[iQuestionNumber]) {
+  if (currentAnswer.toLowerCase() === quizAnswers[iQuestionNumber] && iQuestionNumber !== 5) {
+    alert(quizResponsesCorrect[iQuestionNumber]);
+    correctAnswers++;
+  } else if(iQuestionNumber === 5 && guesses > 0) {
     alert(quizResponsesCorrect[iQuestionNumber]);
     correctAnswers++;
   } else {
     if (iQuestionNumber !== 6 && iQuestionNumber !== 5) {
       alert (quizResponsesIncorrect[iQuestionNumber]);
-    } else if (iQuestionNumber === 5 && guesses === 4) {
+    } else if(iQuestionNumber === 6 && currentAnswer.toLowerCase() !== legendaryPokemon[iPokemon]) {
       alert(quizResponsesIncorrect[iQuestionNumber]);
-    } else if(currentAnswer.toLowerCase() !== legendaryPokemon[iPokemon]) {
+    } else if(guesses === 0) {
       alert(quizResponsesIncorrect[iQuestionNumber]);
     }
   }
