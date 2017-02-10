@@ -106,6 +106,11 @@ for (var iQuestionNumber = 0; iQuestionNumber < quizQuestions.length; iQuestionN
 }
 console.log(correctAnswers);
 
+for(i = 0; i < quizQuestions.length; i++){
+  document.writeln('<p>' + quizQuestions[i] + ': ' + quizAnswers[i] + '</p>');
+}
+
+document.writeln('<p>You got ' + correctAnswers + ' out of ' + quizQuestions.length + '.</p>');
 /*
 // Question One.
 
