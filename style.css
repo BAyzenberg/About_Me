@@ -15,8 +15,8 @@ p {
     width: 400px;
 }
 
-h1 h2 {
-  width: 500px;
+h1, h2, h3 {
+  width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -24,9 +24,24 @@ h1 h2 {
  body {
 }
 
-ol, li {
-  background: black;
+ol {
+  background-color: black;
+  width:200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ol li {
   color: yellow;
+}
+
+ul li {
+  color: blue;
+
+}
+
+ul {
+  background-color: red;
   width:200px;
   margin-left: auto;
   margin-right: auto;
